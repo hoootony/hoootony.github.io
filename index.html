@@ -5,11 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 
-	<title>抽獎</title>
+	<title>抽籤？</title>
 
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css'/>
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
 	<link rel="stylesheet" href="assets/css/main.css">
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GX08VBVZPD"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-GX08VBVZPD');
+	</script>
 </head>
 <body>
 
@@ -39,15 +49,17 @@
 				</a>
 			</section>
 		
-			<section id="result" class="result">
-			</section>
+			<div>
+				<img id="result" class="result">
+				</img>
+			</div>
 		</div>
 	</main>
 
 
 
 	<script>
-		const duration = 2000; // 拉霸效果執行多久
+		const duration = 500; // 拉霸效果執行多久
 
 				// 分葷、素，塞入陣列
 				let lots = [];
@@ -107,7 +119,8 @@
 							Array.prototype.forEach.call(list, l => l.removeAttribute('class'));
 							result.classList.remove('hidden');
 							let imageUrl = 'assets/img/award/' + txt + '.jpg';
-							result.style.backgroundImage = `url(${imageUrl})`;
+							// result.style.backgroundImage = `url(${imageUrl})`;
+							result.src = imageUrl;
 							e.target.classList.remove('not-allow');
 						}, duration);
 
